@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Qerion Mining App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #111;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            color: #00ff99;
+        }
+        .balance {
+            background: #222;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .menu button {
+            background: #00ff99;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .menu button:hover {
+            background: #00cc77;
+        }
+        .section {
+            display: none;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 400px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .section.active {
+            display: block;
+        }
+        .claim-btn {
+            background: #00ff99;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        video {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>💰 Qerion Miner 💰</h1>
+    </header>
+    <div class="balance">
+        <strong>Points:</strong> <span id="points">1000</span>
+    </div>
+    <div class="menu">
+        <button onclick="showSection('claim')">⛏ Claim</button>
+        <button onclick="showSection('tasks')">🎯 Tasks</button>
+        <button onclick="showSection('referral')">💰 Referral</button>
+        <button onclick="showSection('upgrade')">⚙️ Upgrade</button>
+        <button onclick="showSection('leaderboard')">🏆 Leaderboard</button>
+    </div>
+
+    <div id="claim" class="section active">
+        <h2>Claim Points</h2>
+        <button class="claim-btn" onclick="claimPoints()">CLAIM NOW</button>
+        <video id="claimVideo" controls>
+            <source src="dummy_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="tasks" class="section">
+        <h2>✅ Tasks</h2>
+        <p>Join Telegram Group +100 Points</p>
+        <a href="https://t.me/airdrop9810" target="_blank">[Join Now]</a>
+    </div>
+
+    <div id="referral" class="section">
+        <h2>🔗 Referral</h2>
+        <p>Your referral link:<br>
+        <code>https://t.me/QerionBot?start=YourUsername</code><br>
+        Earn 1000 points per referral!</p>
+    </div>
+
+    <div id="upgrade" class="section">
+        <h2>⚡ Upgrade</h2>
+        <ul>
+            <li>Level 1 — 10,000 points</li>
+            <li>Level 2 — 20,000 points</li>
+            <li>Level 3 — 30,000 points</li>
+        </ul>
+    </div>
+
+    <div id="leaderboard" class="section">
+        <h2>🏆 Leaderboard</h2>
+        <p>Coming soon...</p>
+    </div>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function claimPoints() {
+            const video = document.getElementById('claimVideo');
+            video.style.display = 'block';
+            video.play();
+            video.onended = () => {
+                let current = parseInt(document.getElementById('points').innerText);
+                document.getElementById('points').innerText = current + 100;
+                alert("✅ 100 Points Added!");
+                video.style.display = 'none';
+            };
+        }
+    </script>
+</body>
+</html>
