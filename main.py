@@ -21,7 +21,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     isnline_markup = InlineKeyboardMarkup(inline_keyboard)
 
-await update.message.reply_text("Welcome to Qerion Miner!",reply_markup=inline_markup
+await update.message.reply_text("Welcome to Qerion Miner!",reply_markup=inline_markup)
    
 
 def main():
