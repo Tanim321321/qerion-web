@@ -11,7 +11,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     inline_keyboard = [
         [
-            InlineKeyboardButton("🌐 Open App", url="https://qerion-miner.onrender.com"))
+            InlineKeyboardButton("🌐 Open App", url="https://qerion-miner.onrender.com")
         ]
     ]
     inline_keyboard = [
