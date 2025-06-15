@@ -1,24 +1,27 @@
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
-from telegram.ext import Application, CommandHandler, ContextTypes
 
-BOT_TOKEN = "7968961400:AAEVDteHzEk0hlTGwNr4H6okb1xc3B_CkME"
+import os
+from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, WebAppInfo, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.ext import Application, CommandHandler, ContextTypes
+from dotenv import load_dotenv
+
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = InlineKeyboardMarkup([
+    inline_keyboard = [
         [
-            InlineKeyboardButton(
-                text="🌐 Open App",
-                web_app=WebAppInfo(url="https://qerion-miner.onrender.com")
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                text="👥 Join Community",
-                url="https://t.me/airdrop9810"
-            )
+            InlineKeyboardButton("🌐 Open App", url="https://qerion-miner.onrender.com"))
         ]
-    ])
-    await update.message.reply_text("👋 Welcome to Qerion Miner!", reply_markup=keyboard)
+    ]
+    inline_keyboard = [
+        [
+            InlineKeyboardButton("👥 Join Community", url="https://t.me/airdrop9810")
+        ]
+    ]
+    inline_markup = InlineKeyboardMarkup(inline_keyboard)
+
+await update.message.reply_text("Welcome to Qerion Miner!",reply_markup=inline_markup
+   
 
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
