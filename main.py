@@ -19,7 +19,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("👥 Join Community", url="https://t.me/airdrop9810")
         ]
     ]
-    isnline_markup = InlineKeyboardMarkup(inline_keyboard)
+    inline_markup = InlineKeyboardMarkup(inline_keyboard)
 await update.message.reply_text("Welcome to Qerion Miner!",reply_markup=inline_markup)
    
 
